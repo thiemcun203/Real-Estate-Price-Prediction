@@ -1213,3 +1213,147 @@
 2023-11-19 14:01:15 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
 2023-11-19 14:01:15 [scrapy.core.engine] INFO: Closing spider (shutdown)
 2023-11-19 14:01:15 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
+2023-11-19 14:01:58 [scrapy.addons] INFO: Enabled addons:
+[]
+2023-11-19 14:01:58 [scrapy.extensions.telnet] INFO: Telnet Password: f9f48dda245da4d5
+2023-11-19 14:01:58 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2023-11-19 14:01:58 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'house_price_scraper',
+ 'DEPTH_LIMIT': 6000,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'nhadatvnSpider.log',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'house_price_scraper.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'SPIDER_MODULES': ['house_price_scraper.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2023-11-19 14:01:58 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2023-11-19 14:02:03 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'house_price_scraper.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2023-11-19 14:02:03 [scrapy.middleware] INFO: Enabled item pipelines:
+['house_price_scraper.pipelines.HousePriceScraperPipeline',
+ 'house_price_scraper.pipelines.FirebasePipeline']
+2023-11-19 14:02:03 [scrapy.core.engine] INFO: Spider opened
+2023-11-19 14:02:03 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2023-11-19 14:02:03 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2023-11-19 14:02:05 [nhadatvnSpider] INFO: Processing page: 490
+2023-11-19 14:02:11 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-dep-khu-van-mieu-302-trung-tam-dong-da-ngo-thong-rong-o-to-cach-10m-45-ty-lh.bds
+2023-11-19 14:02:13 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ngoi-nha-58m2-duong-phap-van-ban-di-voi-gia-45-ty-co-hoi-dau-tu-tuyet-voi.bds
+2023-11-19 14:02:17 [nhadatvnSpider] WARNING: Item already in the database: https://nhadatvn.com.vn/ban-nha-hoang-cau-dong-da-110m-5t-mt-6m-phan-lo-oto-tranh-nhinh-30-ty-0937651883.bds
+2023-11-19 14:02:21 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-manh-dat-vang-pho-hong-tien-long-bien-dt-164-m2-mat-tien-10-m-gia-282-ty.bds
+2023-11-19 14:02:24 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/phan-lo-huynh-thuc-khang-lo-goc-7-tang-moi-xay-kinh-doanh-vp-dang-cap.bds
+2023-11-19 14:02:28 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/nha-pho-dong-da-dan-xay-6-tang-thang-may-nhap-kinh-doanh-dinh.bds
+2023-11-19 14:02:29 [nhadatvnSpider] INFO: Processing page: 491
+2023-11-19 14:02:34 [nhadatvnSpider] WARNING: Item already in the database: https://nhadatvn.com.vn/ban-nha-cau-giay-vua-o-vua-dau-tu-116m2x-mtien-5m-gia-tot-nhat-pho-100trm2.bds
+2023-11-19 14:02:37 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-thanh-xuan-mp-nguyen-trai-125m-8t-mt-45m-hai-mat-pho-kinh-doanh-nhinh-40-ty.bds
+2023-11-19 14:02:41 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-dong-tien-50m2-9phong-kk-o-dinh-thon-my-dinh-ngo-thoang-van-hanh-ngay-0904688633.bds
+2023-11-19 14:02:45 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-gap-manh-dat-ho-ba-mau-dong-da-hai-mat-ngo-30m-ra-oto-110m-chi-77-ty.bds
+2023-11-19 14:02:48 [nhadatvnSpider] WARNING: Item already in the database: https://nhadatvn.com.vn/ban-dat-duong-thong-gia-duoi-10-trieu.bds
+2023-11-19 14:02:50 [nhadatvnSpider] INFO: Processing page: 492
+2023-11-19 14:02:54 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-mat-pho-ly-nam-de-hoan-kiem-dt45m2-mt55-m-chi-245-ty-0338080356.bds
+2023-11-19 14:02:57 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-biet-thu-khu-do-thi-thanh-pho-giao-luu-195m-kinh-doanh-nhinh-42-ty.bds
+2023-11-19 14:03:01 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/chi-5-ty-so-huu-nha-xa-dan-60m2-x-4t-o-to-do-cua-2-thoang-lh-0966037496.bds
+2023-11-19 14:03:03 [scrapy.extensions.logstats] INFO: Crawled 17 pages (at 17 pages/min), scraped 14 items (at 14 items/min)
+2023-11-19 14:03:05 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-mat-pho-kinh-doanh-dau-gia-ngo-thi-nham-ha-dong-50m2-4-tang-105-ty.bds
+2023-11-19 14:03:09 [nhadatvnSpider] WARNING: Item already in the database: https://nhadatvn.com.vn/ban-lo-dat-mat-pho-kinh-doanh-sam-uat-chi-4x-ty-tai-viet-hung.bds
+2023-11-19 14:03:12 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/can-ban-nha-dat-3-tang-moi-xay-theo-thiet-ke-dien-tich-402m2.bds
+2023-11-19 14:03:16 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-mat-pho-van-phuc-ha-dong-155m2-mt10m-xay-toa-van-phong-9t-tuyet-dep.bds
+2023-11-19 14:03:21 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-dat-tang-nha-2-tang-dinh-thon-50m-mt-43m-chi-5-ty-o-to-lui-do-cua.bds
+2023-11-19 14:03:24 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-hoang-van-thai-45m-5-tang-nha-moi-dep-thoang-sang-co-o-thoang-cho-thang-may-va-gieng.bds
+2023-11-19 14:03:28 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/toa-nha-vp-o-8-tang-vip-nhat-quan-thanh-xuan-o-to-do-cua-full-noi-that-mt-8m-gia-29xx-ty.bds
+2023-11-19 14:03:32 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/nha-mat-pho-ngoc-lam-240m-lo-goc-view-ho-via-he-rong-sieu-kinh-doanh-gia-nha-ngo.bds
+2023-11-19 14:03:35 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-ho-ba-mau-dong-da-lo-goc-o-to-45m2-4t-mt56m-gia-62-ty-10m-gan-ho.bds
+2023-11-19 14:03:37 [nhadatvnSpider] INFO: Processing page: 493
+2023-11-19 14:03:40 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-viet-hunglo-goco-to-tranh-ngo-thongo-cho-thang-may-80m-mt-6m-nhinh-8-ty.bds
+2023-11-19 14:03:44 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/can-ban-gap-nha-pho-nguyen-duc-canh-hoang-mai-dien-tich-65m2-7-tang-thang-may-ngo-thong-kinh.bds
+2023-11-19 14:03:48 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-can-nha-con-duong-kim-nguu-46m2-5-tang-ngo-thong-kinh-doanh-ngay-o-to-gia-ban-75-ty.bds
+2023-11-19 14:03:52 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-chung-cu-mini-quan-hoa-trung-tam-cau-giay-50m2-gia-tu-930-trieu-o-ngay-so-vinh-vien.bds
+2023-11-19 14:03:56 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-ha-yen-2-thoang-gan-pho-ba-gac-tranh-39m-x-4t-chi-425-ty.bds
+2023-11-19 14:04:00 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-pho-nguyen-quy-duc-o-to-vao-nha-60m2-gia-106-ty.bds
+2023-11-19 14:04:03 [scrapy.extensions.logstats] INFO: Crawled 33 pages (at 16 pages/min), scraped 29 items (at 15 items/min)
+2023-11-19 14:04:04 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-biet-thu-pho-thanh-cong-6-tang-thang-may-o-to-tranh-150m-50-ty.bds
+2023-11-19 14:04:09 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-lac-long-quan-ra-pho-10m-40m2-5-ty.bds
+2023-11-19 14:04:11 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/chan-dai-mat-pho-ton-that-thuyet-100m2-x-7-tang-via-he-phan-lo-kinh-doanh-qua-dang-cap.bds
+2023-11-19 14:04:15 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/sieu-dep-ban-manh-dat-khuong-dinh-thanh-xuan-70m2-lo-goc-xay-ccmn-nhinh-5-ty.bds
+2023-11-19 14:04:19 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-5-tang-pho-bat-khoi-long-bien-full-noi-that-27-ty-o-to-do-cua.bds
+2023-11-19 14:04:23 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/dat-khu-dau-gia-tam-dau-viet-hungvia-he-4mcong-vienkinh-doanh96mmt6m140tr.bds
+2023-11-19 14:04:23 [nhadatvnSpider] INFO: Processing page: 494
+2023-11-19 14:04:27 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/nha-dep-moi-toanh-ngo-gia-tu-dt-50m-mt-4mngo-thongo-to-tranhnhinh-5-ty.bds
+2023-11-19 14:04:31 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-85m2-dat-mat-pho-yen-duyen-pyen-so-hoang-mai-ha-noi-so-do-chinh-chu.bds
+2023-11-19 14:04:35 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/cuc-hiem-12x-ty-ban-nha-pho-phan-van-truong-cau-giay-60m-o-to-kinh-doanh.bds
+2023-11-19 14:04:38 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-dinh-cong-dt-38m2-x5t-gia-chi-332-tymoidepo-luon.bds
+2023-11-19 14:04:43 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-dat-dich-vu-yen-nghia-ha-dong-duong-24m-kinh-doanh-51m2-gia-58-ty.bds
+2023-11-19 14:04:47 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-tay-ho-55m-4phong-nha-moi-dep-san-cong-rieng-5ty.bds
+2023-11-19 14:04:50 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-pho-ngo-2xx-bo-de-long-bien-25-ty-95-m2-mt8m-xung-quanh-nhieu-tien-ich.bds
+2023-11-19 14:04:54 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/chung-cu-789-bo-quoc-phong-3-pn-2wc-315-ty.bds
+2023-11-19 14:04:58 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-hoang-van-thai-duong-ngo-thong-rong-dep-gan-60m2-gia-8-ty.bds
+2023-11-19 14:05:02 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-lo-goc-ngo-o-to-duong-quang-ham-sau-ra-nguyen-khanh-toan-52m2-129-ty.bds
+2023-11-19 14:05:03 [scrapy.extensions.logstats] INFO: Crawled 50 pages (at 17 pages/min), scraped 45 items (at 16 items/min)
+2023-11-19 14:05:05 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-ccmn-ngo-300-nguyen-xien-90m2-9-tang-thang-may-lo-goc-27pkk-14-ty.bds
+2023-11-19 14:05:09 [nhadatvnSpider] WARNING: Item already in the database: https://nhadatvn.com.vn/ban-shophouse-khoi-de-du-an-iris-garden-tran-huu-duc-100m2-62-ty.bds
+2023-11-19 14:05:12 [nhadatvnSpider] WARNING: Item already in the database: https://nhadatvn.com.vn/shophouse-chung-cu-hoang-huy-mat-duong-nguyen-trai-47m2-83-ty.bds
+2023-11-19 14:05:16 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-pho-nguyen-trai-thanh-xuan-kd-dong-tien-70m-3tang-mt-4m-chi-5-ty.bds
+2023-11-19 14:05:20 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-pho-nguyen-chi-thanh-phan-lo-o-to-tranh-an-sinh-dinh-5-tang-55m-nhinh-13-ty.bds
+2023-11-19 14:05:22 [nhadatvnSpider] INFO: Processing page: 495
+2023-11-19 14:05:26 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-ngoi-nha-duong-lo-duc-46m2-5-tang-ngo-thong-kinh-doanh-ngay-o-to-gia-75-ty.bds
+2023-11-19 14:05:29 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-mat-ngo-264-ngoc-thuy-95mx5t-mt55m-oto-kd.bds
+2023-11-19 14:05:33 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-nguyen-trai-55m2-5-tang-mat-tien-55m-ngo-thong-o-to-do-cua-kinh-doanh-sam-uat-nhinh-10.bds
+2023-11-19 14:05:36 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/hoa-hau-mat-pho-thuy-khue-42m-6-tang.bds
+2023-11-19 14:05:40 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/biet-thu-sang-trong-giua-long-ha-noi-180m2-mt9m-khach-mua-dang-cap-sang-trong.bds
+2023-11-19 14:05:44 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/cau-giay-65m2-5-tang-13-ty-khu-phan-lo-quan-doi.bds
+2023-11-19 14:05:47 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-dat-mat-duong-ngoc-thuy-oto-kinh-doanh-93m2-mt-8m.bds
+2023-11-19 14:05:52 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/hiem-hiem-hiem-nhinh-5-ty-o-to-do-cua-trinh-dinh-cuu-dinh-cong-34m-5-tang-nha-dep-o-ngay.bds
+2023-11-19 14:05:55 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/sieu-pham-nha-doi-can-ba-dinh-80m2-7t-thang-may-tang-noi-that-vip-0904688633.bds
+2023-11-19 14:05:59 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-van-canh-o-tokd-40m-4t-4n-chi-3-ty-99-nha-moi-o-ngay.bds
+2023-11-19 14:06:02 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-pho-yen-lang-lo-goc-ngo-o-to-tranh-mat-tien-khung-50m-6-tang-155-ty.bds
+2023-11-19 14:06:03 [scrapy.extensions.logstats] INFO: Crawled 67 pages (at 17 pages/min), scraped 61 items (at 16 items/min)
+2023-11-19 14:06:06 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-pho-hao-nam-tang-toan-bo-noi-that-dt-58m2-4-mt-36m-chi-42-ty.bds
+2023-11-19 14:06:09 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/chinh-chu-ban-nha-lang-ha-30m-mx5t-nha-moi-ngo-rong-nhinh-3-ty.bds
+2023-11-19 14:06:13 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-lien-ke-vip-hc-golden-long-bien-kinh-doanh-tang-thang-may-noi-that-vip.bds
+2023-11-19 14:06:17 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-mp-nam-hong-180m-mt-85m-pho-vip-giao-thong-thuan-tien-kinh-diinhr-dong-tien-hang-thang.bds
+2023-11-19 14:06:21 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-de-tran-khat-chan-hai-ba-trung-32-m2-x-3-tang-mt-35m-gia-34-ty.bds
+2023-11-19 14:06:24 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-sieu-biet-thu-khu-a-duong-noi-mat-duong-40m-view-cong-vien-225m2-mt9m-kinh-doanh.bds
+2023-11-19 14:06:29 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/can-ban-nha-nguyen-trai-thanh-xuan-o-to-tranh-kinh-doanh-dt55m2-chi-108-ty.bds
+2023-11-19 14:06:29 [nhadatvnSpider] INFO: Processing page: 496
+2023-11-19 14:06:34 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-dai-mo-nam-tu-liem-o-to-mat-pho-30m-33m-x-5t-chi-4-ty.bds
+2023-11-19 14:06:38 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-cap-4-thuy-khue-35m2-mat-tien-5m-nhinh-2ty-tay-ho-0934266313.bds
+2023-11-19 14:06:42 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-phan-lo-pho-kim-nguu-hai-ba-trung-dt60m2-4-tang-2-mat-thoang-chi-62-ty.bds
+2023-11-19 14:06:45 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-dt-95m2-ho-tung-mau-cau-den-mt6m-4-tang-gia-9-ty-o-to-kd.bds
+2023-11-19 14:06:49 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-2t-ha-dong-37m-o-to-gan-ngo-thong-gia-2x-ty.bds
+2023-11-19 14:06:53 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/nhinh-3-ty-co-ngay-nha-moi-pho-lang-ha-30mx5t-cach-15m-ra-o-to-tranh-dan-tri-cao-o-yen-tinh.bds
+2023-11-19 14:06:56 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-duong-tan-mai-38m2-gan-o-to-kinh-doanh-online-31-ty.bds
+2023-11-19 14:07:00 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-trinh-dinh-cuu-dinh-cong-dien-tich-36m2-5-tang-6-phong-ngu-o-to-do-cua-nhinh-5-ty.bds
+2023-11-19 14:07:03 [scrapy.extensions.logstats] INFO: Crawled 83 pages (at 16 pages/min), scraped 76 items (at 15 items/min)
+2023-11-19 14:07:05 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-90m-datkhu-x6-ha-lo-lien-ha-dong-anh-view-cong-vien-ho-dieu-hoa.bds
+2023-11-19 14:07:08 [nhadatvnSpider] WARNING: Item already in the database: https://nhadatvn.com.vn/ban-nha-pho-tran-hung-dao-hoan-kiem-o-to-dtxd120m2-mt6-m-chi-29-ty-0338080356.bds
+2023-11-19 14:07:12 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-dat-nguyen-khe-dong-anh-gia-re-duong-5m-thong-o-to.bds
+2023-11-19 14:07:13 [nhadatvnSpider] INFO: Processing page: 497
+2023-11-19 14:07:17 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-can-ho-8-tang-dt-52m2-nhan-hoa-thanh-xuan-o-to-kd-gia-135-ty.bds
+2023-11-19 14:07:21 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-dat-dau-gia-rang-san-xa-cao-duong-thanh-oai.bds
+2023-11-19 14:07:24 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/tut-huyet-ap-ban-nha-yen-hoa-426m2-5-tang-moi-dep-mat-ngo-lo-goc-o-to-ha-nhiet-chi-545-ty-co.bds
+2023-11-19 14:07:28 [nhadatvnSpider] INFO: Item saved to database successfully: https://nhadatvn.com.vn/ban-nha-trung-tam-tt-bac-son-bac-son-lang-son.bds
+2023-11-19 14:07:32 [nhadatvnSpider] WARNING: Item already in the database: https://nhadatvn.com.vn/ban-dat-dich-vu-yen-nghia-ha-dong-sat-lo-goc-50m2-mt5m-nhinh-5-ty.bds
+2023-11-19 14:07:34 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2023-11-19 14:07:34 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2023-11-19 14:07:35 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
