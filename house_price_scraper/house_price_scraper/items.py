@@ -10,4 +10,5 @@ class HousePriceScraperItem(scrapy.Item):
     # define the fields for your item here like:
     html_content = scrapy.Field()
     url = scrapy.Field()
+    progress_bar = scrapy.Field()
 
