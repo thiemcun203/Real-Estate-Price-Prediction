@@ -1,0 +1,5 @@
+pandas
+firebase_admin
+scrapy
+beautifulsoup4
+tqdm
