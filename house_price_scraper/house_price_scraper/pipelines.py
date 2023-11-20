@@ -38,10 +38,9 @@ class FirebasePipeline(object):
         # Get the database "batdongsan"
         self.database = firestore.Client(credentials=self.creds, project=self.project_id)
         
-
     def process_item(self, item, spider):
         id  = generate_unique_id(item['url'])
-        collection = self.database.collection(u'nhadatvn')
+        collection = self.database.collection(u'nhadatvn') #replace with your collection name
         doc_ref = collection.document(id)
         doc = doc_ref.get()
         if doc.exists:

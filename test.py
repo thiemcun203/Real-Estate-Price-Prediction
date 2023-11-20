@@ -1,48 +1,40 @@
-# import hashlib
-# from google.cloud import firestore
-# from google.oauth2 import service_account
-# from house_price_scraper.house_price_scraper.settings import firebase_key, project_id
-# from bs4 import BeautifulSoup
+import hashlib
+from google.cloud import firestore
+from google.oauth2 import service_account
+from house_price_scraper.house_price_scraper.settings import firebase_key, project_id
+from bs4 import BeautifulSoup
 
-# def generate_unique_id(input_str):
-#     # Create a SHA-256 hash object
-#     sha256_object = hashlib.sha256()
+def generate_unique_id(input_str):
+    # Create a SHA-256 hash object
+    sha256_object = hashlib.sha256()
 
-#     # Update the hash object with the input string encoded as bytes
-#     sha256_object.update(input_str.encode('utf-8'))
+    # Update the hash object with the input string encoded as bytes
+    sha256_object.update(input_str.encode('utf-8'))
 
-#     # Get the hexadecimal representation of the hash
-#     unique_id = sha256_object.hexdigest()
+    # Get the hexadecimal representation of the hash
+    unique_id = sha256_object.hexdigest()
 
-#     return unique_id
+    return unique_id
 
-# # # Example usage
-# # url = 'https://nhadatvn.com.vn/ban-dat-mat-pho-nguyen-hong-110m2-mat-tien-75m-ngay-nga-tu-kinh-doanh-cho-thue-tot.bds'
-# url = 'https://nhadatvn.com.vn/0904688633-ban-nha-chua-lang-dong-da-50m2-4t-35-ty-xac-dinh-ban-dat-tang-nha.bds'
-# url_id = generate_unique_id(url)
-# print(url_id)
+# # Example usage
+# url = 'https://nhadatvn.com.vn/ban-dat-mat-pho-nguyen-hong-110m2-mat-tien-75m-ngay-nga-tu-kinh-doanh-cho-thue-tot.bds'
+url = 'https://nhadatvn.com.vn/0904688633-ban-nha-chua-lang-dong-da-50m2-4t-35-ty-xac-dinh-ban-dat-tang-nha.bds'
+url_id = generate_unique_id(url)
+print(url_id)
 
-# creds = service_account.Credentials.from_service_account_info(firebase_key)
-# project_id = project_id
-# database = firestore.Client(credentials=creds, project=project_id)
+creds = service_account.Credentials.from_service_account_info(firebase_key)
+project_id = project_id
+database = firestore.Client(credentials=creds, project=project_id)
 
 
-# collection = database.collection(u'nhadatvn')
-# doc = collection.document(url_id).get()
-# html_string = doc.to_dict()['html_content']
-# soup = BeautifulSoup(html_string, 'html.parser')
+collection = database.collection(u'nhadatvn')
+doc = collection.document(url_id).get()
+html_string = doc.to_dict()['html_content']
+soup = BeautifulSoup(html_string, 'html.parser')
 
-# with open('../output.html', 'w', encoding='utf-8') as f:
-#     f.write(soup.prettify())
-# print('Done')
-from tqdm import tqdm
-import time
-with tqdm(total=len(range(10)), desc=f"Processing page: {1}") as pbar:
-    for links in range(10):
-        url = links
-        time.sleep(1)
-        # yield response.follow(url, callback=self.parse_bds_page)
-        pbar.update(1)    
+with open('../output.html', 'w', encoding='utf-8') as f:
+    f.write(soup.prettify())
+print('Done')
     
     
 # import pandas as pd
