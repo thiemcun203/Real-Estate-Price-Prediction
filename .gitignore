@@ -1,0 +1,17 @@
+# General files to ignore
+.DS_Store
+*.log
+.env
+
+# Python specific files
+__pycache__
+*.pyc
+*.pyo
+*.cpython-310.pyc
+
+# Specific directory related rules
+/house_price_scraper/nhadatvnSpider.log
+house/lib/python3.10/site-packages/attr/__pycache__/*
+
+# General directory rule
+house/
