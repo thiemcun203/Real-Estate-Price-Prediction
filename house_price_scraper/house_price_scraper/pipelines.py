@@ -40,7 +40,7 @@ class FirebasePipeline(object):
         
     def process_item(self, item, spider):
         id  = generate_unique_id(item['url'])
-        collection = self.database.collection(u'nhadatvn') #replace with your collection name
+        collection = self.database.collection(u'alonhadatvn') #replace with your collection name
         doc_ref = collection.document(id)
         doc = doc_ref.get()
         if doc.exists:
