@@ -12,6 +12,6 @@ __pycache__
 # Specific directory related rules
 /house_price_scraper/nhadatvnSpider.log
 house/lib/python3.10/site-packages/attr/__pycache__/*
-
+house
 # General directory rule
 house/
