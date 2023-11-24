@@ -4,7 +4,14 @@ from google.oauth2 import service_account
 from house_price_scraper.house_price_scraper.settings import firebase_key, project_id
 from bs4 import BeautifulSoup
 
+import re
+
 def generate_unique_id(input_str):
+    # ---------- ONLY FOR IBATDONGSAN SPIDER ----------
+    PATTERN = r'[-]+[0-9]+\.html$'
+    input_str = re.sub(PATTERN, '', input_str)
+    # --------------------------------------------------
+
     # Create a SHA-256 hash object
     sha256_object = hashlib.sha256()
 
@@ -18,7 +25,7 @@ def generate_unique_id(input_str):
 
 # # Example usage
 # url = 'https://nhadatvn.com.vn/ban-dat-mat-pho-nguyen-hong-110m2-mat-tien-75m-ngay-nga-tu-kinh-doanh-cho-thue-tot.bds'
-url = 'https://nhadatvn.com.vn/0904688633-ban-nha-chua-lang-dong-da-50m2-4t-35-ty-xac-dinh-ban-dat-tang-nha.bds'
+url = 'https://i-batdongsan.com/ban-nha-khuc-thua-du-cau-giay-32m2-c4-mt5m-gia-3-ty-6-phuong-4838601.html'
 url_id = generate_unique_id(url)
 print(url_id)
 
@@ -27,7 +34,7 @@ project_id = project_id
 database = firestore.Client(credentials=creds, project=project_id)
 
 
-collection = database.collection(u'nhadatvn')
+collection = database.collection(u'ibatdongsan')
 doc = collection.document(url_id).get()
 html_string = doc.to_dict()['html_content']
 soup = BeautifulSoup(html_string, 'html.parser')
