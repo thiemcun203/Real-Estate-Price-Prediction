@@ -19,9 +19,9 @@ NEWSPIDER_MODULE = "house_price_scraper.spiders"
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 FEEDS = {
-    'nhadatvn.csv': {'format':'csv', 'overwrite':True},
+    'ibatdongsan.csv': {'format':'csv', 'overwrite':True},
 }
-DEPTH_LIMIT = 8300
+DEPTH_LIMIT = 6000
 
 LOG_LEVEL = 'INFO'
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
@@ -78,6 +78,8 @@ ITEM_PIPELINES = {
   #  "house_price_scraper.pipelines.ProgressBarPipeline":500,
 }
 
+# ---------- OLD FIREBASE KEY ----------
+"""
 firebase_key = {
   "type": "service_account",
   "project_id": "house-price-prediction-20231",
@@ -91,6 +93,24 @@ firebase_key = {
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-akwfj%40house-price-prediction-20231.iam.gserviceaccount.com",
   "universe_domain": "googleapis.com"
 }
+""" 
+# ---------- OLD FIREBASE KEY ----------
+
+# ---------- NEW FIREBASE KEY ----------
+firebase_key = {
+  "type": "service_account",
+  "project_id": "house-price-prediction-20231",
+  "private_key_id": "caf093aa56fbbc94cae534c679d951a59e57d8ca",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCkII0M0o1tMHjR\n+/h2f56IZLizudUSGs99Sagyqpo5XB7f30pvm5n/Xf1OTG1CRFxdx0zDLTD7EIQp\nWQd0ojahcaryuOxH6jj4N6nJNLpoEMEE5q1R3dM6Llexzi39t763yPwLprnJvxVB\n7XrxL2ACHYQFGg60joVxfTebUD/f+P2MEA1zpf8KyRKKaSo143Zd6+6vuXjqFum7\nJJ2+6TiX3DXmLiatrzRLSwZX5ZQsOVZTBVvvQ9o5VejR8Ko0O25mAEHn4BQfbde/\nuj0Z2x0STsV5UkLKzDHmrBSN+o3bcOLxTwdKD/Qg5ZyaN530L4REUE2soMwDKITq\nZVRUCs3nAgMBAAECggEAEmNdOi8Kzk1sc+Y9h5Uzv0c9lFFBKHadgYVzlT2c6slB\n4kYjkk6GGeC/ZPrWEOMU0CLonENfZfmLPRCu76fO5BaWlvwV6Na6jEC8QoEoU0lx\nPqnTiEUIic+wXojhiTgBY5jeeDW1Qf+pE4pWSFhM8t+4r1OkiyEenUDwrnN2vJJ8\nYJ4z8SMV8TpSPr6SpgHY5KgA0UfuNlmdHbu97Xc8AqkCtRc0tjvuNDogrxVUF/KQ\nEHatEO5IlPE+spXgd1JqLiJziVTjuFBHk6b1+3iY7QZVpleGQ0nneU3wHyVh/ypc\n3ui8/PScDvJBOUftxexPlHHRBWlv8UauiNI4N6pb0QKBgQDY40Lt3+O4daA73pj+\nnbf+Gxov596xeFzx/I9oJWDbpIODJcBx+epGlKAICbWCWNFcWzEGKCIcdftpJDo1\nJOlIyEc9fhEEamloufaaZcnFBCqQ0FgACpCB71Q4kv0XeSayjX+IOZddZthbx34V\nHdmiSfuRzXQZz/i6/lJ80BfIMQKBgQDBuZGbGAUuCzjuEEjTfIn+Xv6H6O7ue9xm\nC/0+EJe9Vwa3dHof99JfEsDtSKBUlWjq2lwVOHwcupdDssh2qB+FqzqAdHZ71dxT\nIeqymrw0u3LkHVXL5qG2Te9M2sYyFKqpHqIxM/F8BJDdVUpvBkXKzQJq5/ZPnDts\nSm2hWxoJlwKBgEm0GSd7AQjLODOANp+3+zGoBiMneZ73lyZIvHcY1KxvYJ2ts5NH\n6Vwo36U7n2n3QtZOyv8bnlPrqA8X14v9yiUIomT8NU451y5Wm73mP0XrX4estWr2\nLBtruEQtd0KF0ie1PBSP9acw7u9pgKguZ6nl2E648e5fpVfuWxu9H4fRAoGBAJBo\nWQ7oz+urt+tWPkNQIbl5bHk5fOpPcFKte0BJtCMS/VHBxMuRu8LdQu1eZw3GNmhj\nD6NN8M6llN6FJgO1fZHxuvFIX44eNFfP/5jV2ZfhZ1p+N5eAO2mfHNQIfReV6kWZ\nLURKOSe+a5Jh4tNyNJJhUf0JHsXnazBlJuXR+E3PAoGBAMewzgQCFaMiqJUa1TGz\n3Qg97hYNDctvXxnOyo25ZLumFCdZu8WyCmR/Ujtubpt4h8SgBZHjBSLAmSYMsTGR\nZimDno8vTs69keyDW/tqNFdeMSPBqtr57Hjmc3FWcmHPctRg8Ofqmili0pJZi+/t\nuAzr8G9MmyRUxG1zRFsjWK7z\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-akwfj@house-price-prediction-20231.iam.gserviceaccount.com",
+  "client_id": "104204028462038712681",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-akwfj%40house-price-prediction-20231.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
+# ---------- NEW FIREBASE KEY ----------
 project_id = 'house-price-prediction-20231'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
