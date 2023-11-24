@@ -29,15 +29,13 @@ collection_ref = database.collection(u'nhadatvn')
 documents = collection_ref.stream()
 
 PATTERN = r'^\s*([-+]?\d*\.?\d+)\s+(.*)$'
-
-# Path to the JSON file
-output_file_path = 'extracted_data.json'
+OUTPUT_PATH = 'house_price_eda/extracted_data.json'
 
 for idx, document in enumerate(documents):
     doc = document.to_dict()
     print(idx, doc['url'])
     
-    if idx == 500:
+    if idx == 1000:
         break
     
     url = document.to_dict()['url']
@@ -82,7 +80,7 @@ for idx, document in enumerate(documents):
     # Load existing data from the JSON file
     existing_data = []
     try:
-        with open(output_file_path, 'r') as json_file:
+        with open(OUTPUT_PATH, 'r') as json_file:
             existing_data = json.load(json_file)
     except FileNotFoundError:
         pass  # The file might not exist yet, which is okay
@@ -91,7 +89,7 @@ for idx, document in enumerate(documents):
     existing_data.append(house_info)
 
     # Save the combined data to the JSON file
-    with open(output_file_path, 'w') as json_file:
+    with open(OUTPUT_PATH, 'w') as json_file:
         json.dump(existing_data, json_file, indent=2)
 
 print("Extraction completed.")
