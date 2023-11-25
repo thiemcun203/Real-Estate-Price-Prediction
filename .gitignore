@@ -18,3 +18,4 @@ house/lib/python3.10/site-packages/attr/__pycache__/*
 
 # General directory rule
 house/
+test_logic.py
