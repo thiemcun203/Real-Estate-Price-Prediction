@@ -12,8 +12,14 @@ from house_price_scraper.settings import firebase_key, project_id
 import hashlib
 from tqdm import tqdm
 
+import re
 
 def generate_unique_id(input_str):
+    # ---------- ONLY FOR IBATDONGSAN SPIDER ----------
+    PATTERN = r'[-]+[0-9]+\.html$'
+    input_str = re.sub(PATTERN, '', input_str)
+    # --------------------------------------------------
+
     # Create a SHA-256 hash object
     sha256_object = hashlib.sha256()
 
@@ -40,7 +46,7 @@ class FirebasePipeline(object):
         
     def process_item(self, item, spider):
         id  = generate_unique_id(item['url'])
-        collection = self.database.collection(u'alonhadatvn') #replace with your collection name
+        collection = self.database.collection(u'ibatdongsan') # Replace with your collection name
         doc_ref = collection.document(id)
         doc = doc_ref.get()
         if doc.exists:

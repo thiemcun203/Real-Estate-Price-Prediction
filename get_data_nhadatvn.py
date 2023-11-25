@@ -1,40 +1,53 @@
-import firebase_admin
-from firebase_admin import credentials, firestore
+import re
+import json
+from scrapy import Selector
 from google.cloud import firestore
+from google.cloud.firestore_v1 import aggregation
+from google.cloud.firestore_v1.base_query import FieldFilter
 from google.oauth2 import service_account
 from house_price_scraper.house_price_scraper.settings import firebase_key, project_id
 
+# Query documents in the collection
+# query = collection_ref.where(filter=FieldFilter("url", "!=", "0"))
+# documents = query.stream()
+
+# # Build the aggregation query
+# aggregate_query = aggregation.AggregationQuery(query)
+
+# # Count the documents
+# aggregate_query.count(alias="url")
+
+# # Get the results
+# results = aggregate_query.get()
+
+# print(f"Number of documents: {results[0][0].value}")
+# Initialize Firebase
 creds = service_account.Credentials.from_service_account_info(firebase_key)
 project_id = project_id
 database = firestore.Client(credentials=creds, project=project_id)
 collection_ref = database.collection(u'nhadatvn')
-
-
-# Query documents in the collection
 documents = collection_ref.stream()
-
-# ----------------- DATA EXTRACTION ----------------- #
-
-import re
-import pandas as pd
-from IPython.display import display
-from scrapy import Selector
-from collections import defaultdict
 
 PATTERN = r'^\s*([-+]?\d*\.?\d+)\s+(.*)$'
 
-house_data = pd.DataFrame()
+# Path to the JSON file
+output_file_path = 'extracted_data.json'
 
 for idx, document in enumerate(documents):
+    doc = document.to_dict()
+    print(idx, doc['url'])
+    
     if idx == 500:
         break
+    
     url = document.to_dict()['url']
     html = document.to_dict()['html_content']
     sel = Selector(text=html)
     all_texts = sel.css('div.tinbds-row-3 > ul > li ::text').extract()
     
     idx_of_label = 0
-    house_info = defaultdict(list)
+    house_info = {}
+
     while True:
         try:
             # ---------- EXTRACT LABEL AND VALUE ---------- #
@@ -66,8 +79,19 @@ for idx, document in enumerate(documents):
         except:
             break
     
-    house_info = pd.DataFrame(house_info, index=[0])
-    house_data = pd.concat([house_data, house_info], ignore_index=True)
+    # Load existing data from the JSON file
+    existing_data = []
+    try:
+        with open(output_file_path, 'r') as json_file:
+            existing_data = json.load(json_file)
+    except FileNotFoundError:
+        pass  # The file might not exist yet, which is okay
 
-display(house_data)
-house_data.to_csv('house_data.csv', index=False)
+    # Append the new data to the existing data
+    existing_data.append(house_info)
+
+    # Save the combined data to the JSON file
+    with open(output_file_path, 'w') as json_file:
+        json.dump(existing_data, json_file, indent=2)
+
+print("Extraction completed.")
