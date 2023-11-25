@@ -7,7 +7,8 @@ import sys
 import time
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), "../../"))
 from house_price_scraper.items import HousePriceScraperItem
-
+import time
+import random
 # scrapy crawl nhadatvnSpider
 class alonhadatvnSpider(scrapy.Spider):
     name = "alonhadatvnSpider"
@@ -20,7 +21,7 @@ class alonhadatvnSpider(scrapy.Spider):
     def __init__(self, *args, **kwargs):
         super(alonhadatvnSpider, self).__init__(*args, **kwargs)
         #Find "Processing page" in log file to fill value for number of pages. To make sure that all pages are crawled, we can take value found minus 1. But it takes more time to crawl again.
-        self.num_page = 9 - 1
+        self.num_page = 12 - 1
         self.original_url = "https://alonhadat.com.vn/nha-dat/can-ban/nha-dat/1/ha-noi.html"
         self.start_urls = ["https://alonhadat.com.vn/nha-dat/can-ban/nha-dat/1/ha-noi.html"]
         # self.start_urls = [self.original_urls + "?page=" + str(self.num_page)]
@@ -33,6 +34,7 @@ class alonhadatvnSpider(scrapy.Spider):
         # Estimate time to crawl all pages, sometimes it's not accurate because of retrying requests
         self.progress_bar.append(tqdm(total=len(bds_links), desc=f"Processing and saving page: {self.num_page}"))
         for link in bds_links:
+            time.sleep(random.uniform(1, 2))
             url = "https://alonhadat.com.vn" + link
             yield response.follow(url, callback=self.parse_bds_page)
         

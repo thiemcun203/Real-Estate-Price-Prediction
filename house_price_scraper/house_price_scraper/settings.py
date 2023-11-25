@@ -51,12 +51,20 @@ LOG_LEVEL = 'INFO'
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 SPIDER_MIDDLEWARES = {
 #    "house_price_scraper.middlewares.HousePriceScraperSpiderMiddleware": 543,
-    'house_price_scraper.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware': 200,
+    # 'house_price_scraper.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware': 200,
+    'house_price_scraper.middlewares.ScrapeOpsProxyMiddleware': 250,
 }
 SCRAPEOPS_API_KEY = 'b8c5d96d-e82f-488e-b155-b433f278e029' # signup at https://scrapeops.io
 SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT = 'https://headers.scrapeops.io/v1/user-agents'
 SCRAPEOPS_FAKE_USER_AGENT_ENABLED = True
 SCRAPEOPS_NUM_RESULTS = 10
+## settings.py
+
+SCRAPEOPS_PROXY_ENABLED = True
+
+
+
+
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html

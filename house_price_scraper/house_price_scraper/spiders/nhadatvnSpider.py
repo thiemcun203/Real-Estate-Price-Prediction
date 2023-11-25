@@ -20,10 +20,10 @@ class nhadatvnSpider(scrapy.Spider):
     def __init__(self, *args, **kwargs):
         super(nhadatvnSpider, self).__init__(*args, **kwargs)
         #Find "Processing page" in log file to fill value for number of pages. To make sure that all pages are crawled, we can take value found minus 1. But it takes more time to crawl again.
-        self.num_page = 1130 - 1
-        # self.original_urls = "https://nhadatvn.com.vn/nha-dat-ban-kv-ha-noi.html"
-        self.start_urls = ['https://batdongsan.com.vn/ban-nha-rieng-ha-noi']
-        # self.start_urls = [self.original_urls + "?page=" + str(self.num_page)]
+        self.num_page = 1134 - 1
+        self.original_urls = "https://nhadatvn.com.vn/nha-dat-ban-kv-ha-noi.html"
+        # self.start_urls = ['https://batdongsan.com.vn/ban-nha-rieng-ha-noi']
+        self.start_urls = [self.original_urls + "?page=" + str(self.num_page)]
         self.progress_bar = []
            
     def parse(self, response):
