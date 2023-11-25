@@ -15,6 +15,9 @@ class ibatdongsanSpider(scrapy.Spider):
 
     custom_settings = {
         'LOG_FILE': "ibatdongsanSpider.log",
+        # 'FEEDS' : {
+        #     'ibatdongsan.csv': {'format':'csv', 'overwrite':True},
+        # },
     }
 
     def __init__(self, *args, **kwargs):

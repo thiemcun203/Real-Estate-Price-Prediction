@@ -2,26 +2,9 @@ import re
 import json
 from scrapy import Selector
 from google.cloud import firestore
-from google.cloud.firestore_v1 import aggregation
-from google.cloud.firestore_v1.base_query import FieldFilter
 from google.oauth2 import service_account
 from house_price_scraper.house_price_scraper.settings import firebase_key, project_id
 
-# Query documents in the collection
-# query = collection_ref.where(filter=FieldFilter("url", "!=", "0"))
-# documents = query.stream()
-
-# # Build the aggregation query
-# aggregate_query = aggregation.AggregationQuery(query)
-
-# # Count the documents
-# aggregate_query.count(alias="url")
-
-# # Get the results
-# results = aggregate_query.get()
-
-# print(f"Number of documents: {results[0][0].value}")
-# Initialize Firebase
 creds = service_account.Credentials.from_service_account_info(firebase_key)
 project_id = project_id
 database = firestore.Client(credentials=creds, project=project_id)
@@ -37,7 +20,7 @@ for idx, document in enumerate(documents):
     doc = document.to_dict()
     print(idx, doc['url'])
     
-    if idx == 500:
+    if idx == 1000:
         break
     
     url = document.to_dict()['url']
@@ -78,7 +61,7 @@ for idx, document in enumerate(documents):
 
         except:
             break
-    
+    #RESET OLD JSON FILE FOR NEW EDA OR REWRITE LOGIC TO HANDLE EXIST DATA, append/overwrite
     # Load existing data from the JSON file
     existing_data = []
     try:

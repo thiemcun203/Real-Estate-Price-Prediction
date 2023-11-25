@@ -16,12 +16,15 @@ class alonhadatvnSpider(scrapy.Spider):
 
     custom_settings = {
         'LOG_FILE': "alonhadatvnSpider.log",
+        # 'FEEDS' : {
+        #     'alonhadatvn.csv': {'format':'csv', 'overwrite':True},
+        # },
     }
 
     def __init__(self, *args, **kwargs):
         super(alonhadatvnSpider, self).__init__(*args, **kwargs)
         #Find "Processing page" in log file to fill value for number of pages. To make sure that all pages are crawled, we can take value found minus 1. But it takes more time to crawl again.
-        self.num_page = 12 - 1
+        self.num_page = 23 - 1
         self.original_url = "https://alonhadat.com.vn/nha-dat/can-ban/nha-dat/1/ha-noi.html"
         self.start_urls = ["https://alonhadat.com.vn/nha-dat/can-ban/nha-dat/1/ha-noi.html"]
         # self.start_urls = [self.original_urls + "?page=" + str(self.num_page)]

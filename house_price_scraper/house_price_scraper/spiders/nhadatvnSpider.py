@@ -15,6 +15,9 @@ class nhadatvnSpider(scrapy.Spider):
 
     custom_settings = {
         'LOG_FILE': "nhadatvnSpider.log",
+        # 'FEEDS' : {
+        #     'nhadatvn.csv': {'format':'csv', 'overwrite':True},
+        # },
     }
 
     def __init__(self, *args, **kwargs):

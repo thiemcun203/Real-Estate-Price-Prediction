@@ -14,12 +14,18 @@ from tqdm import tqdm
 
 import re
 
-def generate_unique_id(input_str):
-    # ---------- ONLY FOR IBATDONGSAN SPIDER ----------
-    PATTERN = r'[-]+[0-9]+\.html$'
-    input_str = re.sub(PATTERN, '', input_str)
-    # --------------------------------------------------
-
+def generate_unique_id(input_str, spider_name):
+    
+    if spider_name == 'nhadatvnSpider':
+        input_str = input_str
+    elif spider_name == 'ibatdongsanSpider':
+        PATTERN = r'[-]+[0-9]+\.html$'
+        input_str = re.sub(PATTERN, '', input_str)
+    elif spider_name == 'alonhadatvnSpider':
+        PATTERN = r'[-]+[0-9]+\.html$'
+        input_str = re.sub(PATTERN, '', input_str)
+        
+    
     # Create a SHA-256 hash object
     sha256_object = hashlib.sha256()
 
@@ -45,8 +51,9 @@ class FirebasePipeline(object):
         self.database = firestore.Client(credentials=self.creds, project=self.project_id)
         
     def process_item(self, item, spider):
-        id  = generate_unique_id(item['url'])
-        collection = self.database.collection(u'ibatdongsan') # Replace with your collection name
+        id  = generate_unique_id(item['url'], spider.name)
+           
+        collection = self.database.collection(spider.name[:-6]) # Replace with your collection name
         doc_ref = collection.document(id)
         doc = doc_ref.get()
         if doc.exists:
@@ -61,10 +68,3 @@ class FirebasePipeline(object):
         item['progress_bar'].update(1)
         return item
 
-# class ProgressBarPipeline:
-    
-#     def process_item(self, item, spider):
-#         with tqdm(total=len(spider.sub_pages), desc=f"Processing page: {self.num_page}") as pbar:
-#             spider.progress_bar = pbar
-#             spider.progress_bar.update(1)
-#         return item

@@ -18,9 +18,7 @@ NEWSPIDER_MODULE = "house_price_scraper.spiders"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
-FEEDS = {
-    'ibatdongsan.csv': {'format':'csv', 'overwrite':True},
-}
+
 DEPTH_LIMIT = 6000
 
 LOG_LEVEL = 'INFO'
