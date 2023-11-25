@@ -22,30 +22,37 @@ from house_price_scraper.house_price_scraper.settings import firebase_key, proje
 
 # print(f"Number of documents: {results[0][0].value}")
 # Initialize Firebase
+
 creds = service_account.Credentials.from_service_account_info(firebase_key)
 project_id = project_id
 database = firestore.Client(credentials=creds, project=project_id)
-collection_ref = database.collection(u'nhadatvn')
+collection_ref = database.collection(u'nhadatvn')               # ---------------------------> Change this to your desired collection
 documents = collection_ref.stream()
 
 PATTERN = r'^\s*([-+]?\d*\.?\d+)\s+(.*)$'
-OUTPUT_PATH = 'house_price_eda/extracted_data.json'
+OUTPUT_PATH = 'house_price_eda/extracted_data_nhadatvn.json'    # ---------------------------> Change this to your desired output path
 
-for idx, document in enumerate(documents):
+for idx, document in enumerate(documents):                      # ---------------------------> Change this to fit the logic of your scraper                 
     doc = document.to_dict()
     print(idx, doc['url'])
     
-    if idx == 1000:
-        break
+    # if idx == 200:                                            # ---------------------------> Uncomment to test on a small number of documents
+    #     break                                                 # ---------------------------> Comment to run on all documents
     
     url = document.to_dict()['url']
     html = document.to_dict()['html_content']
     sel = Selector(text=html)
-    all_texts = sel.css('div.tinbds-row-3 > ul > li ::text').extract()
-    
-    idx_of_label = 0
     house_info = {}
 
+    # (1) ---------- EXTRACT NUMBER OF BEDROOMS ---------- #
+    try:
+        house_info['Số phòng ngủ'] = int(sel.css('ul.ul_thuoctinhcoban_user > li:nth-child(3)::text').extract()[1].split()[0])
+    except:
+        pass
+    
+    # (2) ---------- EXTRACT MAIN INFORMATION ---------- #
+    all_texts = sel.css('div.tinbds-row-3 > ul > li ::text').extract()
+    idx_of_label = 0
     while True:
         try:
             # ---------- EXTRACT LABEL AND VALUE ---------- #
@@ -76,6 +83,13 @@ for idx, document in enumerate(documents):
 
         except:
             break
+    
+    # (3) ---------- EXTRACT DATE OF UPLOAD ---------- #
+    try:
+        house_info['Ngày đăng'] = sel.css('ul.ul_thoihandangtin > li:nth-child(1)::text').extract()[1].rstrip().lstrip()
+        house_info['Ngày hết hạn'] = sel.css('ul.ul_thoihandangtin > li:nth-child(2)::text').extract()[1].rstrip().lstrip()
+    except:
+        pass
     
     # Load existing data from the JSON file
     existing_data = []
