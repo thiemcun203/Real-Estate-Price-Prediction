@@ -22,7 +22,7 @@ num_docs = aggregate_query.count(alias="url").get()[0][0].value
 
 # ---------- CONSTANTS ---------- #
 PATTERN = r'^\s*([-+]?\d*\.?\d+)\s+(.*)$'
-OUTPUT_PATH = 'house_price_eda/extracted_data_nhadatvn_2.json'                        # ----------> Change this to your desired output path
+OUTPUT_PATH = 'house_price_eda/extracted_data_nhadatvn.json'                        # ----------> Change this to your desired output path
 LOG_FILE_PATH = 'get_data_nhadatvn.log'                                             # ----------> Change this to your desired log file path
 
 # ---------- EXTRACT DATA ---------- #
