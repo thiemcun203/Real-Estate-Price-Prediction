@@ -23,7 +23,7 @@ class ibatdongsanSpider(scrapy.Spider):
         self.num_page = 1
         self.original_url = "https://i-batdongsan.com/can-ban-nha-dat/ha-noi-t1.htm"
         self.start_urls = ["https://i-batdongsan.com/can-ban-nha-dat/ha-noi-t1.htm"]
-        # self.start_urls = [self.original_urls + "?page=" + str(self.num_page)]
+        # self.start_urls = [self.original_url[:-4] + "/p" + str(self.num_page) + ".htm"]
         self.progress_bar = []
            
     def parse(self, response):
