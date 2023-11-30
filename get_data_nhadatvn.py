@@ -35,7 +35,7 @@ for batch_idx in range((num_docs - idx_offset) // 200 + 1):
         'url': last_processed_identifier
         }).stream()
 
-    for doc_idx, document in enumerate(documents):                                  # ----------> Change (1)-(3) to fit the logic of your scraper. (0), (4)-(6) can be kept the same.               
+    for doc_idx, document in enumerate(documents):                                  # ----------> Change (1)-(4) to fit the logic of your scraper. (0), (5)-(7) can be kept the same.               
         
         # (0) ---------- SETTING UP ---------- #
         doc = document.to_dict()
@@ -93,7 +93,13 @@ for batch_idx in range((num_docs - idx_offset) // 200 + 1):
         except:
             pass
         
-        # (4) ---------- LOAD EXISTING DATA INTO JSON FILE ---------- #
+        # (4) ---------- EXTRACT LOCATION ---------- #
+        try:
+            house_info['Địa chỉ'] = sel.css('div.diachi-tindang::text').extract_first()
+        except:
+            pass
+
+        # (5) ---------- LOAD EXISTING DATA INTO JSON FILE ---------- #
         existing_data = []
         try:
             with open(OUTPUT_PATH, 'r') as json_file:
@@ -101,12 +107,12 @@ for batch_idx in range((num_docs - idx_offset) // 200 + 1):
         except FileNotFoundError:
             pass
 
-        # (5) ---------- APPEND & SAVE NEW DATA TO EXISTING DATA ---------- #
+        # (6) ---------- APPEND & SAVE NEW DATA TO EXISTING DATA ---------- #
         existing_data.append(house_info)
         with open(OUTPUT_PATH, 'w') as json_file:
             json.dump(existing_data, json_file, indent=2)
         
-        # (6) ---------- UPDATE LAST PROCESSED IDENTIFIER ---------- #
+        # (7) ---------- UPDATE LAST PROCESSED IDENTIFIER ---------- #
         if doc_idx == 199:
             last_processed_identifier = document.to_dict()['url']
             break
