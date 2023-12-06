@@ -4,3 +4,5 @@ scrapy
 beautifulsoup4
 tqdm
 IPython
+selenium
+scrapy-selenium

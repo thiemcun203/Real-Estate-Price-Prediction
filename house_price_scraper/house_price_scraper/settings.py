@@ -11,6 +11,18 @@ BOT_NAME = "house_price_scraper"
 
 SPIDER_MODULES = ["house_price_scraper.spiders"]
 NEWSPIDER_MODULE = "house_price_scraper.spiders"
+## settings.py
+
+# for Chrome driver 
+from shutil import which
+  
+SELENIUM_DRIVER_NAME = 'chrome'
+SELENIUM_DRIVER_EXECUTABLE_PATH = which('chromedriver')
+SELENIUM_DRIVER_ARGUMENTS=['--headless']  
+  
+# DOWNLOADER_MIDDLEWARES = {
+#      'scrapy_selenium.SeleniumMiddleware': 150
+#      }
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -18,7 +30,7 @@ NEWSPIDER_MODULE = "house_price_scraper.spiders"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
-
+REDIRECTS_ENABLED = False
 DEPTH_LIMIT = 6000
 
 LOG_LEVEL = 'INFO'
@@ -55,7 +67,7 @@ SPIDER_MIDDLEWARES = {
 SCRAPEOPS_API_KEY = 'b8c5d96d-e82f-488e-b155-b433f278e029' # signup at https://scrapeops.io
 SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT = 'https://headers.scrapeops.io/v1/user-agents'
 SCRAPEOPS_FAKE_USER_AGENT_ENABLED = True
-SCRAPEOPS_NUM_RESULTS = 10
+SCRAPEOPS_NUM_RESULTS = 100
 ## settings.py
 
 SCRAPEOPS_PROXY_ENABLED = True
